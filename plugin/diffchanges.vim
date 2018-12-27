@@ -86,6 +86,7 @@ function! s:DiffChangesOn(mode) "{{{1
         diffthis
         1
         vert new
+        setlocal bt=nofile bh=wipe nobl noswf ro
         let &ft=save_ft
         execute '0read '.filename
         diffthis
@@ -96,6 +97,7 @@ function! s:DiffChangesOn(mode) "{{{1
         below new
         setlocal filetype=diff
         setlocal foldmethod=manual
+        setlocal bt=nofile bh=wipe nobl noswf ro
         silent 0put=diff
         1
         let bufname = s:GetPatchFilename(filename)
